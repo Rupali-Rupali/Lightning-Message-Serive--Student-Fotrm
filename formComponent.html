@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="New Student Form" icon-name="custom:custom14">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                object-api-name="Student__c"
+                onsuccess={handleSuccess}
+                onerror={handleError}
+                onsubmit={handleSubmit}>
+
+                <!-- Name (required) -->
+                <lightning-input-field field-name="Name__c" required></lightning-input-field>
+
+                <!-- Date of Birth (required) -->
+                <lightning-input-field field-name="Date_of_Birth__c" required></lightning-input-field>
+
+                <!-- Sex -->
+                <lightning-input-field field-name="Sex__c"></lightning-input-field>
+
+                <!-- Languages -->
+                <lightning-input-field field-name="Languages__c"></lightning-input-field>
+
+                <!-- Country -->
+                <lightning-input-field field-name="Country__c"></lightning-input-field>
+
+                <!-- Hobbies (required) -->
+                <lightning-input-field field-name="Hobbies__c" required></lightning-input-field>
+
+                <!-- Submit Button -->
+                <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="submit" label="Submit">
+                </lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
