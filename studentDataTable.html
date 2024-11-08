@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Custom Student Records" icon-name="custom:custom63">
+        <!-- Datatable displaying records -->
+        <lightning-datatable
+            key-field="Id"
+            data={records}
+            columns={columns}
+            draft-values={draftValues}
+            hide-checkbox-column
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+
+        <!-- Conditional rendering of edit form -->
+        <template if:true={selectedRecord}>
+            <lightning-record-edit-form
+                record-id={selectedRecord.Id}
+                object-api-name="Student__c">
+                
+                <lightning-messages></lightning-messages>
+
+                <lightning-input-field field-name="Name__c" value={selectedRecord.Name__c}></lightning-input-field>
+                <lightning-input-field field-name="Date_of_Birth__c" value={selectedRecord.Date_of_Birth__c}></lightning-input-field>
+                <lightning-input-field field-name="Sex__c" value={selectedRecord.Sex__c}></lightning-input-field>
+                <lightning-input-field field-name="Languages__c" value={selectedRecord.Languages__c}></lightning-input-field>
+                <lightning-input-field field-name="Country__c" value={selectedRecord.Country__c}></lightning-input-field>
+                <lightning-input-field field-name="Hobbies__c" value={selectedRecord.Hobbies__c}></lightning-input-field>
+                
+                <lightning-button type="submit" label="Save Changes" variant="brand" onclick={handleSave}></lightning-button>
+                <lightning-button label="Cancel" onclick={cancelEdit} variant="neutral"></lightning-button>
+            </lightning-record-edit-form>
+        </template>
+    </lightning-card>
+</template>
